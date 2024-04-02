@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacanze di Pasqua</title>
+</head>
+
+<body>
+    <!-- alfabeto farfallino -->
+    <h1>alfabeto farfallino</h1>
+    <input type="text" class="string" placeholder="inserisci una parola o una frase">
+    <ul class="result"></ul>
+    <button class="translate">traduci</button>
+    <hr>
+    <!-- array facile -->
+    <h1>array facile</h1>
+    <input type="number" class="number-input">
+
+    <button class="generate">genera array</button>
+    <div class="even"></div>
+
+    <hr>
+    <!-- array medio 1 -->
+    <h1>array medio 1</h1>
+    <button class="even-med">Pari</button>
+    <button class="odd-med">dispari</button>
+    <div class="odd-even"></div>
+    <hr>
+    <!-- array medio 2 -->
+    <h1>array medio 2</h1>
+    <input type="number" class="user-number">
+    <button class="module">cattura il numero inserito </button>
+    <div class="module-result"></div>
+    <hr>
+    <!-- array difficile -->
+    <h1>array difficile</h1>
+    <ul class="object-array"></ul>
+    <button class="reorder">riordina</button>
+    <ul class="object-array-order"></ul>
+    <hr>
+    <!-- progetto vue -->
+    <div id="app">
+        <h1>progetto vue</h1>
+        <input v-model="userValue" type="number" placeholder="inserisci un valore in Euri">
+        <select name="valuta" id="valuta">
+            <option value="dollari">dollari</option>
+            <option value="sterline">sterline</option>
+        </select>
+        <button @click="convert()">converti</button>
+        <p>valore inserito: {{userValue}} </p>
+        <p>valore convertito:{{converted}}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
