@@ -98,52 +98,55 @@ let numeri = [];
 numeri.sort((function (a, b) { return a - b }))
 generateArray.addEventListener('click', function () {
     let inputNumberDom = document.querySelector('.number-input').value
+    if (inputNumberDom <= 0 || isNaN(inputNumberDom)) {
+        evenArray.innerHTML = 'inserisci un numero e non inserire caratteri'
+    } else {
 
-    let pari = [];
+        let pari = [];
 
-    let min = 1;
-    let max = inputNumberDom;
-    while (numeri.length < max) {
+        let min = 1;
+        let max = inputNumberDom;
+        while (numeri.length < max) {
 
-        const randomNumber = Math.floor(Math.random() * max) + min;
+            const randomNumber = Math.floor(Math.random() * max) + min;
 
-        let presente = false;
+            let presente = false;
 
-        for (let i = 0; i < numeri.length; i++) {
+            for (let i = 0; i < numeri.length; i++) {
 
-            if (numeri[i] === randomNumber) {
-                presente = true;
+                if (numeri[i] === randomNumber) {
+                    presente = true;
+                }
+
+            }
+
+            if (presente === false) {
+                numeri.push(randomNumber);
             }
 
         }
 
-        if (presente === false) {
-            numeri.push(randomNumber);
+        for (let i = 0; i < numeri.length; i++) {
+
+            let numeroCor = numeri[i];
+            let rest = numeroCor % 2;
+
+            if (rest === 0) {
+                pari.push(numeroCor);
+            }
+
         }
+        console.log('numeri', numeri);
+        console.log('pari', pari);
 
-    }
-
-    for (let i = 0; i < numeri.length; i++) {
-
-        let numeroCor = numeri[i];
-        let rest = numeroCor % 2;
-
-        if (rest === 0) {
-            pari.push(numeroCor);
-        }
-
-    }
-    console.log('numeri', numeri);
-    console.log('pari', pari);
-
-    evenArray.innerHTML = `
+        evenArray.innerHTML = `
     numeri generati: ${numeri.sort(function (a, b) { return a - b })} <br>
     numeri pari: ${pari.sort(function (a, b) { return a - b })}
     `
 
 
-    document.querySelector('.number-input').value =''
-
+        document.querySelector('.number-input').value = ''
+    }
 
 })
 
@@ -226,13 +229,13 @@ for (let i = 0; i < arrayObjects.length; i++) {
 }
 reorderDom.addEventListener('click', function () {
 
-        
-        let reorderArray = arrayObjects.sort(function (a, b) { return a.age - b.age })
-        console.log(reorderArray)
-        for (let i = 0; i < reorderArray.length; i++) {
-            objectArrayOrderDom.innerHTML += `<li>nome: ${reorderArray[i].name} eta':${reorderArray[i].age}</li>`
-        }
-    
+
+    let reorderArray = arrayObjects.sort(function (a, b) { return a.age - b.age })
+    console.log(reorderArray)
+    for (let i = 0; i < reorderArray.length; i++) {
+        objectArrayOrderDom.innerHTML += `<li>nome: ${reorderArray[i].name} eta':${reorderArray[i].age}</li>`
+    }
+
 })
 
 
